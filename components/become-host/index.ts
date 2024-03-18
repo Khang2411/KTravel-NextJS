@@ -1,0 +1,7 @@
+export * from './FooterBecomeHost'
+export * from './DiscountForm'
+export * from './PriceForm'
+export * from './PrivacyTypeForm'
+export * from './StructureForm'
+export * from './FloorPlanForm'
+export * from './LocationForm'
