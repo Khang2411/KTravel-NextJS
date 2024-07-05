@@ -19,7 +19,7 @@ const getCategoryList = async () => {
 
 export default async function Page() {
   const categories = await getCategoryList()
-  const rooms = await getRoomList()
+  const rooms = cookies().get('accessToken')?.value && await getRoomList()
 
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
