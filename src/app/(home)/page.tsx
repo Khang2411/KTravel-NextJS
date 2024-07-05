@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 
 const getRoomList = async (searchParams: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms?limit=12&${searchParams}`, {
+    method: 'GET',
     headers: {
       'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
     },
@@ -13,7 +14,7 @@ const getRoomList = async (searchParams: string) => {
 }
 
 const getCategoryList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`, { next: { revalidate: 3600 } })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`, { method: 'GET', next: { revalidate: 3600 } })
   return res.json();
 }
 
