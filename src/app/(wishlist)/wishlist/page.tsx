@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 import { cookies } from 'next/headers'
 
 const getRoomList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/v1/wishlist?limit=12`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/wishlist?limit=12`, {
     headers: {
       'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
     },
@@ -13,7 +13,7 @@ const getRoomList = async () => {
 }
 
 const getCategoryList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/v1/categories`, { next: { revalidate: 3600 } })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`, { next: { revalidate: 3600 } })
   return res.json();
 }
 
