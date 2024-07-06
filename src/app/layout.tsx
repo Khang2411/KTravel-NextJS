@@ -9,6 +9,8 @@ import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const maxDuration = 60;
+
 export const metadata: Metadata = {
   title: 'Du lịch | Nhà nghỉ dưỡng Ktravel',
   description: 'Đặt chỗ cho mọi phòng, nơi ở du lịch khắp châu á',
