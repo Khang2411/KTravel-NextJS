@@ -3,15 +3,6 @@ import { RoomList } from '@/components/room'
 import { Box, Typography } from '@mui/material'
 import { cookies } from 'next/headers'
 
-const getRoomList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/wishlist?limit=12`, {
-    headers: {
-      'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
-    },
-  })
-  return res.json();
-}
-
 const getCategoryList = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`, { next: { revalidate: 3600 } })
   return res.json();
