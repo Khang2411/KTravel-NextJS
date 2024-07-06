@@ -19,17 +19,11 @@ const getCategoryList = async () => {
 
 export default async function Page() {
   const categories = await getCategoryList()
-  const rooms = cookies().get('accessToken')?.value && await getRoomList()
 
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
       <Box sx={{ padding: '20px 0' }}>
         <CategoryList categories={categories.data}></CategoryList>
-      </Box>
-      <Box padding={'12px'}>
-        <Box padding={'25px 0'}><Typography variant='h4'>Yêu thích</Typography></Box>
-        {cookies().get('accessToken')?.value && <RoomList rooms={rooms.data}></RoomList>}
-        {rooms.data.data.length === 0  && <Box><Typography padding={'10px 0'}>Không có mục yêu thích nào.</Typography></Box>}
       </Box>
     </Box>
   )
