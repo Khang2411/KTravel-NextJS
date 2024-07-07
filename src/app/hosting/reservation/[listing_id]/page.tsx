@@ -1,18 +1,18 @@
-// @ts-nocheck
 import { AmenitiesManage, Basics, Discount, LinkScroll, Location, Price, PropertyRooms } from "@/components/manage-your-space";
 import { Box, Divider, Stack } from "@mui/material";
 import { cookies } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import fetch from 'node-fetch';
+import { Response, Room } from "@/models";
 
-const getRoom = async (id: number) => {
+const getRoom = async (id: number): Promise<Response<Room>> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/rooms/${id}`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
         },
     })
-    return res.json();
+    return res.json() as Promise<Response<Room>>;
 }
  
 const Page = async ({ params }: { params: { listing_id: number } }) => {

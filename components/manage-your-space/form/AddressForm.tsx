@@ -16,8 +16,8 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-    longitude: yup.string().required(),
-    latitude: yup.string().required(),
+    longitude: yup.number().required(),
+    latitude: yup.number().required(),
     country: yup.string().required('Vui lòng chọn'),
     street: yup.string().required('Không được trống'),
     city: yup.string().required('Không được trống'),
@@ -40,8 +40,8 @@ export const AddressForm = ({ onSubmit, handleToggle, longitude: longitudeProps,
     const { handleSubmit, control, setValue, formState: { isSubmitting } } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-            longitude: "",
-            latitude: "",
+            longitude: longitudeProps,
+            latitude: latitudeProps,
             country: address.country,
             street: address.street,
             city: address.city,
@@ -62,11 +62,6 @@ export const AddressForm = ({ onSubmit, handleToggle, longitude: longitudeProps,
         })
         return null // don't want anything to show up from this comp
     }
-
-    useEffect(() => {
-        setValue('longitude', longitude.toString())
-        setValue('latitude', latitude.toString())
-    })
 
     const searchEventHandler = (result: any) => {
         console.log(result.location);
@@ -97,7 +92,7 @@ export const AddressForm = ({ onSubmit, handleToggle, longitude: longitudeProps,
                     <InputField control={control} name="latitude" />
                 </Box>
                 <Box>
-                    <MapContainer style={{ height: '50vh', width: '100wh' }}
+                    <MapContainer style={{ height: '50vh', width: '100wh' }} attributionControl={false}
                         center={[latitude, longitude]} zoom={18} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

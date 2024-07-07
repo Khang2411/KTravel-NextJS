@@ -17,8 +17,8 @@ export interface Room {
 	category_id: string | number
 	host_name: string,
 	description: string
-	latitude: number | string,
-	longitude: number | string,
+	latitude: number,
+	longitude: number,
 	room_type: string,
 	price: number,
 	adult: number,

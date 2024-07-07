@@ -15,12 +15,12 @@ import InputField from "../form/InputField";
 import { FooterBecomeHost } from "./FooterBecomeHost";
 
 type FormValues = {
-    longitude: string,
-    latitude: string,
+    longitude: number,
+    latitude: number,
 };
 const schema = yup.object().shape({
-    longitude: yup.string().required(),
-    latitude: yup.string().required(),
+    longitude: yup.number().required(),
+    latitude: yup.number().required(),
 });
 
 interface LocationFormProps {
@@ -34,8 +34,8 @@ export const LocationForm = ({ onSubmit, id }: LocationFormProps) => {
     const { handleSubmit, control, setValue, formState: { isSubmitting } } = useForm<FormValues>({
         resolver: yupResolver(schema),
         defaultValues: {
-            longitude: "",
-            latitude: ""
+            longitude: 0,
+            latitude: 0
         },
     });
 
@@ -93,7 +93,7 @@ export const LocationForm = ({ onSubmit, id }: LocationFormProps) => {
                     <InputField control={control} name="latitude" />
                 </Box>
                 <Box>
-                    <MapContainer style={{ height: '50vh', width: '100wh' }}
+                    <MapContainer style={{ height: '50vh', width: '100wh' }} attributionControl={false}
                         center={[longitude, latitude]} zoom={6} scrollWheelZoom={false}>
                         <RecenterAutomatically lat={latitude} lng={longitude} />
                         <TileLayer

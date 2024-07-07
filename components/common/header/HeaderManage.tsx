@@ -22,7 +22,7 @@ export const HeaderManage = () => {
     return (
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             <Box sx={{ padding: "15px", height: '100%' }}>
-                <Stack direction="row" justifyContent="space-between">
+                <Stack direction="row" justifyContent="space-between" alignItems={'center'}>
                     <Logo></Logo>
                     <Box>
                         <Button variant="text"><Link href={'/hosting/reservation'}>Đặt phòng</Link></Button>

@@ -5,20 +5,20 @@ import { Box, Stack } from "@mui/material"
 import { cookies } from "next/headers"
 import type { Metadata, ResolvingMetadata } from 'next'
 import fetch from 'node-fetch';
+import { Response, Room } from "@/models"
 
 type Props = {
     params: { slug: string | number }
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-const getRoomDetail = async (id: number | string) => {
-     {/* @ts-ignore  */}
+const getRoomDetail = async (id: number | string): Promise<Response<Room>> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms/${id}`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
         },
     })
-    return res.json();
+    return res.json() as Promise<Response<Room>>;
 }
 
 export async function generateMetadata(

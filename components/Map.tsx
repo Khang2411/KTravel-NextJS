@@ -22,7 +22,7 @@ L.Icon.Default.mergeOptions({
 export const Map = ({ lat, long }: MapProps) => {
     return (
         <Box height={'100%'}>
-            <MapContainer
+            <MapContainer attributionControl={false}
                 className='h-full rounded-xl z-0'
                 center={[lat, long]} zoom={5} scrollWheelZoom={true}>
                 <TileLayer

@@ -1,11 +1,12 @@
 import { BookCard, BookInfo } from '@/components/book';
+import { Room,Response } from '@/models';
 import { Box, Stack, Typography } from '@mui/material';
 import fetch from 'node-fetch';
 
-const getRoomDetail = async (id: number) => {
-    {/* @ts-ignore  */}
+
+const getRoomDetail = async (id: number): Promise<Response<Room>> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms/${id}`)
-    return res.json();
+    return res.json() as Promise<Response<Room>>;
 }
 
 export default async function Page({ params }: { params: { slug: number } }) {
@@ -25,7 +26,7 @@ export default async function Page({ params }: { params: { slug: number } }) {
                     <Stack direction={{ xs: 'column-reverse', md: "row" }} justifyContent={'space-between'} gap={5}>
                         <Box width={{ xs: '100%', md: '59%' }}>
                             <Box padding={'16px'}>
-                                <BookInfo room={room.data} roomId={params.slug}></BookInfo>
+                                <BookInfo room={room.data as any} roomId={params.slug}></BookInfo>
                             </Box>
                         </Box>
 

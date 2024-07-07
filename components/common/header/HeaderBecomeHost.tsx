@@ -14,7 +14,7 @@ export const HeaderBecomeHost = () => {
 
     return (
         <Box sx={{ paddingTop: "32px", paddingInline: '48px' }}>
-            <Stack direction="row" justifyContent="space-between">
+            <Stack direction="row" justifyContent="space-between" alignItems={'center'}>
                 <Logo></Logo>
                 <Button variant="outlined" onClick={handleSubmit}
                     sx={{
