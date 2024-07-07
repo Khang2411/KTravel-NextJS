@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         source: "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`, // Proxy to Backend
+        destination: `https://admin.ktravel.io.vn/api/:path*`, // Proxy to Backend
       },
     ];
   },
