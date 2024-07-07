@@ -1,9 +1,10 @@
 import { encodeUrl } from '@/utils/url';
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import fetch from 'node-fetch';
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest): Promise<any> {
     const url = new URL(request.url);
     const pathname = url.pathname
     let cookie = request.cookies.get('accessToken')
@@ -16,7 +17,7 @@ export async function middleware(request: NextRequest) {
             "Authorization": `Bearer ${cookie.value}`
         },
     });
-    const profile = await response.json()
+    const profile = await response.json() as any
     const isLoggedIn = Boolean(profile.data)
     const verify = Boolean(profile.data.varify)
 
