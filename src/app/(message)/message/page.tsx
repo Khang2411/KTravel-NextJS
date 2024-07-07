@@ -1,6 +1,7 @@
 import { MessageUserList } from '@/components/chat';
 import { Box } from '@mui/material'
 import { cookies } from 'next/headers'
+import fetch from 'node-fetch';
 
 const getUserList = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/broadcast/user/message/list`, {
@@ -18,6 +19,7 @@ export default async function Page({ params }: { params: { slug: number } }) {
     return (
         <>
             <Box component={'section'} sx={{ maxWidth: '1400px', width: '100%', margin: "20px auto" }}>
+                {/* @ts-ignore */}
                 <MessageUserList userList={userList.data}/>
             </Box>
         </>

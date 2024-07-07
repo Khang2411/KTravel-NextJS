@@ -2,6 +2,7 @@ import { CategoryList } from '@/components/category'
 import { RoomList } from '@/components/room'
 import { Box, Typography } from '@mui/material'
 import { cookies } from 'next/headers'
+import fetch from 'node-fetch';
 
 const getRoomList = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/wishlist?limit=12`, {
@@ -13,7 +14,7 @@ const getRoomList = async () => {
 }
 
 const getCategoryList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`, { next: { revalidate: 3600 } })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`)
   return res.json();
 }
 
@@ -24,12 +25,15 @@ export default async function Page() {
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
       <Box sx={{ padding: '20px 0' }}>
-        <CategoryList categories={categories.data}></CategoryList>
+        {/* @ts-ignore  */}
+        <CategoryList categories={categories.data }></CategoryList>
       </Box>
        <Box padding={'12px'}>
         <Box padding={'25px 0'}><Typography variant='h4'>Yêu thích</Typography></Box>
-          {cookies().get('accessToken')?.value && <RoomList rooms={rooms.data}></RoomList>}
-          {rooms.data.data.length === 0  && <Box><Typography padding={'10px 0'}>Không có mục yêu thích nào.</Typography></Box>}
+            {/* @ts-ignore  */}
+           <RoomList rooms={rooms.data}></RoomList>
+            {/* @ts-ignore  */}
+          {rooms.data.data.length === 0  && <Box><Typography padding={'10px 0'}>Không có mục yêu thích nào.</Typography></Box>} 
       </Box>
     </Box>
   )

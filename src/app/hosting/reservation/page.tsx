@@ -1,6 +1,7 @@
 import { ReservationTab } from "@/components/reservation";
 import { Box, Typography } from "@mui/material";
 import { cookies } from 'next/headers';
+import fetch from 'node-fetch';
 
 const getReservationList = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/reservation/list?page=1&limit=10&person=me`, {
@@ -20,6 +21,7 @@ const Page = async () => {
                     <Typography variant="h5" padding={'30px 0'}>Đặt phòng</Typography>
                 </Box>
                 <Box>
+                    {/* @ts-ignore */}
                    <ReservationTab reservationList={reservation.data} />
                 </Box>
             </Box>

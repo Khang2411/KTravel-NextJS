@@ -1,9 +1,11 @@
+// @ts-nocheck
 import { Map } from "@/components/Map"
 import { RoomHeroDesktop, RoomHeroMobile, RoomInfo, RoomReservation } from "@/components/room"
 import { RoomReservationMobile } from "@/components/room/RoomReservationMobile"
 import { Box, Stack } from "@mui/material"
 import { cookies } from "next/headers"
 import type { Metadata, ResolvingMetadata } from 'next'
+import fetch from 'node-fetch';
 
 type Props = {
     params: { slug: string | number }

@@ -1,8 +1,10 @@
+// @ts-nocheck
 import { AmenitiesManage, Basics, Discount, LinkScroll, Location, Price, PropertyRooms } from "@/components/manage-your-space";
 import { Box, Divider, Stack } from "@mui/material";
 import { cookies } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import fetch from 'node-fetch';
 
 const getRoom = async (id: number) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/rooms/${id}`, {
@@ -12,11 +14,10 @@ const getRoom = async (id: number) => {
     })
     return res.json();
 }
-
+ 
 const Page = async ({ params }: { params: { listing_id: number } }) => {
-
     const room = await getRoom(params.listing_id)
-    console.log(room)
+   
     return (
         <Box sx={{ maxWidth: '1440px', paddingInline: { xs: '24px', md: '80px' } }}>
             <ToastContainer />

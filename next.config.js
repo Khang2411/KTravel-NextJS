@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   env: {
-    NEXT_PUBLIC_API_URL: 'https://admin.ktravel.io.vn',
-  },
   reactStrictMode: false,
   experimental: {
     serverActions: true,
