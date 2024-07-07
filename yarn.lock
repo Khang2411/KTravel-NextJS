@@ -232,10 +232,10 @@
   dependencies:
     mime "^3.0.0"
 
-"@cloudflare/next-on-pages@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.npmjs.org/@cloudflare/next-on-pages/-/next-on-pages-1.12.0.tgz"
-  integrity sha512-Al0N457EXj/RcMUN5fIqlOaoIAYlUK3Iw83wW9r8Kvc1HxBnnFPYBsmFYhJtb5CO7851eOtikX51Olsxv6IIDA==
+"@cloudflare/next-on-pages@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npmjs.org/@cloudflare/next-on-pages/-/next-on-pages-1.11.0.tgz"
+  integrity sha512-/wKpDMrp2THkco+O5IKb7/JA07pppop4cRF3LEgL1FhJYxlOn3jo9WsZSuW58PovQJR2tZisLB/EJjJpmt1KOA==
   dependencies:
     acorn "^8.8.0"
     ast-types "^0.14.2"
