@@ -6,7 +6,7 @@ import { cookies } from 'next/headers'
 import fetch from 'node-fetch';
 
 const getRoomList = async (searchParams: string): Promise<Response<ResponsePaginate<Room>>> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms?limit=12&${searchParams}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms?limit=12${searchParams && '&' +searchParams}`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
