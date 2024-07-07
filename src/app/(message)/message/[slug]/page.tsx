@@ -5,6 +5,7 @@ import React from 'react'
 import fetch from 'node-fetch';
 
 const getUserList = async () => {
+      {/* @ts-ignore */}
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/broadcast/user/message/list`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
@@ -14,6 +15,7 @@ const getUserList = async () => {
 }
 
 const getMess = async (messId: number | string) => {
+      {/* @ts-ignore */}
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/broadcast/message/${messId}`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,

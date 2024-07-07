@@ -3,6 +3,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import fetch from 'node-fetch';
 
 const getRoomDetail = async (id: number) => {
+    {/* @ts-ignore  */}
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms/${id}`)
     return res.json();
 }

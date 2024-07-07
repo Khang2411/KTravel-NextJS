@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import fetch from 'node-fetch';
 
 const getRoomList = async () => {
+  {/* @ts-ignore  */}
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/wishlist?limit=12`, {
     headers: {
       'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,

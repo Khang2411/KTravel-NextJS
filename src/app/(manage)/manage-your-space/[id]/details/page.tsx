@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import fetch from 'node-fetch';
 
 const getRoom = async (id: string | number) => {
+      {/* @ts-ignore */}
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/rooms/${id}`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,

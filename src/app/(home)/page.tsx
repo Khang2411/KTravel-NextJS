@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import fetch from 'node-fetch';
 
 const getRoomList = async (searchParams: string) => {
+  {/* @ts-ignore  */}
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms?limit=12&${searchParams}`, {
     method: 'GET',
     headers: {
@@ -15,6 +16,7 @@ const getRoomList = async (searchParams: string) => {
 }
 
 const getCategoryList = async () => {
+  {/* @ts-ignore  */}
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`)
   return res.json();
 }
