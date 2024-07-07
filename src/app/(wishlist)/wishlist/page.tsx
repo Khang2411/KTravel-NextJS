@@ -21,9 +21,7 @@ export default async function Page() {
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
        <Box padding={'12px'}>
         <Box padding={'25px 0'}><Typography variant='h4'>Yêu thích</Typography></Box>
-            {/* @ts-ignore  */}
-           <RoomList rooms={rooms.data}></RoomList>
-            {/* @ts-ignore  */}
+          <RoomList rooms={rooms.data}></RoomList>
           {rooms.data.data.length === 0  && <Box><Typography padding={'10px 0'}>Không có mục yêu thích nào.</Typography></Box>} 
       </Box>
     </Box>

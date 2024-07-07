@@ -22,7 +22,6 @@ const Page = async () => {
                     <Typography variant="h5" padding={'30px 0'}>Đặt phòng</Typography>
                 </Box>
                 <Box>
-                    {/* @ts-ignore */}
                    <ReservationTab reservationList={reservation.data} />
                 </Box>
             </Box>

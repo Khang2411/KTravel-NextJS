@@ -22,7 +22,6 @@ const Page = async () => {
                     <Typography variant="h5" padding={'30px 0'}>Nhà/phòng cho thuê của bạn</Typography>
                 </Box>
                 <Box>
-                    {/* @ts-ignore */}
                     {rooms.data.total === 0 ? <Typography align="center" mt={5}>Không có dữ liệu</Typography> : <HostingList rooms={rooms.data} />}
                 </Box>
             </Box>

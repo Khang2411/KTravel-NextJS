@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { AmenitiesManage, Basics, Discount, LinkScroll, Location, Price, PropertyRooms } from "@/components/manage-your-space";
 import { Box, Divider, Stack } from "@mui/material";
 import { cookies } from 'next/headers';

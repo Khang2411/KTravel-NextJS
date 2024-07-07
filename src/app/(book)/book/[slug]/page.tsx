@@ -25,13 +25,11 @@ export default async function Page({ params }: { params: { slug: number } }) {
                     <Stack direction={{ xs: 'column-reverse', md: "row" }} justifyContent={'space-between'} gap={5}>
                         <Box width={{ xs: '100%', md: '59%' }}>
                             <Box padding={'16px'}>
-                                {/* @ts-ignore */}
                                 <BookInfo room={room.data} roomId={params.slug}></BookInfo>
                             </Box>
                         </Box>
 
                         <Box width={{ xs: '100%', md: '39%' }}>
-                            {/* @ts-ignore */}
                             <BookCard room={room.data}></BookCard>
                         </Box>
                     </Stack>

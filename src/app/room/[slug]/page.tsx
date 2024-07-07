@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Map } from "@/components/Map"
 import { RoomHeroDesktop, RoomHeroMobile, RoomInfo, RoomReservation } from "@/components/room"
 import { RoomReservationMobile } from "@/components/room/RoomReservationMobile"
@@ -13,6 +12,7 @@ type Props = {
 }
 
 const getRoomDetail = async (id: number | string) => {
+     {/* @ts-ignore  */}
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms/${id}`, {
         headers: {
             'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,

@@ -32,11 +32,9 @@ export default async function Page({
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
       <Box sx={{ padding: '20px 0' }}>
-         {/* @ts-ignore  */}
         <CategoryList categories={categories.data}></CategoryList>
       </Box>
       <Box padding={'12px'}>
-         {/* @ts-ignore  */}
         <RoomList rooms={rooms.data}></RoomList>
       </Box>
     </Box>

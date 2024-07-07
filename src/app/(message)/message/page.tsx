@@ -20,7 +20,6 @@ export default async function Page({ params }: { params: { slug: number } }) {
     return (
         <>
             <Box component={'section'} sx={{ maxWidth: '1400px', width: '100%', margin: "20px auto" }}>
-                {/* @ts-ignore */}
                 <MessageUserList userList={userList.data}/>
             </Box>
         </>

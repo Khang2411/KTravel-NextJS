@@ -31,7 +31,6 @@ export default async function Page({ params }: { params: { slug: number } }) {
     return (
         <>
             <Box component={'section'} sx={{ maxWidth: '1400px', width: '100%', paddingInline: { md: "80px", sm: "40px", xs: "24px" }, margin: "16px 0" }}>
-                {/* @ts-ignore */}
                 <Chat userList={userList.data} messId={params.slug} message={mess.data} />
             </Box>
         </>
