@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
-import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import { cookies } from 'next/headers';
+import fetch from 'node-fetch';
 
 const handler = NextAuth({
   providers: [
@@ -11,7 +11,7 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ user, account }): Promise<any> {
       let params = { ...user, provider_id: user.id, provider: account?.provider }
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/social/login`, {
         method: "POST",
@@ -20,7 +20,9 @@ const handler = NextAuth({
         },
         body: JSON.stringify(params)
       });
-      const login = await response.json();
+
+      const login = await response.json() as any;
+
       console.log(params)
       console.log(login)
       cookies().set('accessToken', login.data.token)
