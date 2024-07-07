@@ -13,21 +13,11 @@ const getRoomList = async () => {
   return res.json();
 }
 
-const getCategoryList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`)
-  return res.json();
-}
-
 export default async function Page() {
-  const categories = await getCategoryList()
   const rooms = await getRoomList()
   
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
-      <Box sx={{ padding: '20px 0' }}>
-        {/* @ts-ignore  */}
-        <CategoryList categories={categories.data }></CategoryList>
-      </Box>
        <Box padding={'12px'}>
         <Box padding={'25px 0'}><Typography variant='h4'>Yêu thích</Typography></Box>
             {/* @ts-ignore  */}
