@@ -11,13 +11,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const maxDuration = 60;
 
-if (!(global as any).fetch) {
-  function getFetchImpl() {
-    return (global as any).__NEXT_USE_UNDICI
-      ? require('next/dist/compiled/undici')
-      : require('next/dist/compiled/node-fetch')
-  }
-
 export const metadata: Metadata = {
   title: 'Du lịch | Nhà nghỉ dưỡng Ktravel',
   description: 'Đặt chỗ cho mọi phòng, nơi ở du lịch khắp châu á',
