@@ -1,11 +1,9 @@
-import axiosClient from '@/api-client/axios-client';
 import { NextAuthProvider } from '@/components/common';
 import '@fontsource/roboto/500.css';
 import { Box } from '@mui/material';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { SWRConfig } from 'swr';
 import './globals.css';
-import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
