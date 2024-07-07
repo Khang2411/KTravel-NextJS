@@ -20,17 +20,15 @@ const getCategoryList = async (): Promise<ListResponse<Category>> => {
   return res.json() as Promise<ListResponse<Category>>;
 }
 
-
-
 export default async function Page({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[][] | Record<string, string> | URLSearchParams | undefined };
 }) {
   const search = new URLSearchParams(searchParams as URLSearchParams | undefined).toString();
-  const categories = await getCategoryList()
   const rooms = await getRoomList(search)
-
+  const categories = await getCategoryList()
+  
   return (
     <Box component={'section'} maxWidth={'1360px'} width={'100%'} margin={'auto'}>
       <Box sx={{ padding: '20px 0' }}>
