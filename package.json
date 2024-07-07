@@ -10,7 +10,6 @@
     "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.8",
@@ -61,6 +60,7 @@
     "yup": "^1.3.2"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.11.0",
     "@types/js-cookie": "^3.0.6",
     "@types/leaflet": "^1.9.3",
     "@types/leaflet-geosearch": "^3.0.0",
