@@ -10,7 +10,13 @@ import type { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const maxDuration = 60;
-export const dynamic = 'force-dynamic';
+
+if (!(global as any).fetch) {
+  function getFetchImpl() {
+    return (global as any).__NEXT_USE_UNDICI
+      ? require('next/dist/compiled/undici')
+      : require('next/dist/compiled/node-fetch')
+  }
 
 export const metadata: Metadata = {
   title: 'Du lịch | Nhà nghỉ dưỡng Ktravel',
