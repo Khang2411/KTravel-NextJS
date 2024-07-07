@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server'
 import fetch from 'node-fetch';
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(request: NextRequest): Promise<any> {
+export async function middleware(request: NextRequest) {
     const url = new URL(request.url);
     const pathname = url.pathname
     let cookie = request.cookies.get('accessToken')
@@ -12,6 +12,7 @@ export async function middleware(request: NextRequest): Promise<any> {
     if (!cookie) {
         return NextResponse.redirect(new URL(`/?back_to=${encodeUrl(pathname)}`, request.url))
     }
+    
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/profile`, {
         headers: {
             "Authorization": `Bearer ${cookie.value}`
