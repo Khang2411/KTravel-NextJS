@@ -8,7 +8,7 @@ const fetch = createFetch();
 import Agent from 'agentkeepalive';
 
 // Create a keep-alive HTTP agent
-const keepaliveAgent = new Agent({
+const keepaliveAgent = new Agent.HttpsAgent({
   maxSockets: 100,
   maxFreeSockets: 10,
   timeout: 60000, // active socket keepalive for 60 seconds
