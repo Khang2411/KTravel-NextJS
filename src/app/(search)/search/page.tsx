@@ -15,7 +15,7 @@ const getRoomSearchList = async (searchParams: string) : Promise<Response<Respon
 }
 
 const getCategoryList = async (): Promise<ListResponse<Category>> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`,{ next: { revalidate: 250 }})
   return res.json() as Promise<ListResponse<Category>>;
 }
 
