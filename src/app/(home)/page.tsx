@@ -1,3 +1,4 @@
+'use client'
 import { CategoryList } from "@/components/category";
 import { RoomList } from "@/components/room";
 import {
@@ -8,10 +9,8 @@ import {
   Room,
 } from "@/models";
 import { Box } from "@mui/material";
-import { cookies } from "next/headers";
-import fetch from "node-fetch";
-import https from "https";
-import crypto from "crypto";
+// import { cookies } from "next/headers";
+import Cookies from 'js-cookie';
 
 const getRoomList = async (
   searchParams: string
@@ -22,11 +21,8 @@ const getRoomList = async (
     }`,
     {
       headers: {
-        Authorization: `Bearer ${cookies().get("accessToken")?.value}`,
-      },
-      agent: new https.Agent({
-        secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
-      }),
+        Authorization: `Bearer ${Cookies.get("accessToken")}`,
+      }
     }
   );
   return res.json() as Promise<Response<ResponsePaginate<Room>>>;
@@ -35,13 +31,11 @@ const getRoomList = async (
 const getCategoryList = async (): Promise<ListResponse<Category>> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`,
-    {
-      agent: new https.Agent({ secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT})
-    }
   );
   return res.json() as Promise<ListResponse<Category>>;
 };
 
+// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({
   searchParams,
 }: {

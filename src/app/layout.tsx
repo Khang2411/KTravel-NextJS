@@ -1,16 +1,13 @@
-import axiosClient from '@/api-client/axios-client';
 import { NextAuthProvider } from '@/components/common';
 import '@fontsource/roboto/500.css';
 import { Box } from '@mui/material';
 import { Inter } from 'next/font/google';
-import { SWRConfig } from 'swr';
 import './globals.css';
 import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const maxDuration = 60;
-export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Du lịch | Nhà nghỉ dưỡng Ktravel',
