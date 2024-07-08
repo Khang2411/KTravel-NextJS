@@ -1,7 +1,6 @@
 import { MessageUserList } from "@/components/chat";
 import { Box } from "@mui/material";
 import { cookies } from "next/headers";
-import fetch from "node-fetch";
 
 const getUserList = async (): Promise<any> => {
   const res = await fetch(

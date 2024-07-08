@@ -11,7 +11,6 @@ import { Box, Divider, Stack } from "@mui/material";
 import { cookies } from "next/headers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import fetch from "node-fetch";
 import { Response, Room } from "@/models";
 
 const getRoom = async (id: string | number): Promise<Response<Room>> => {
