@@ -3,8 +3,7 @@ import { RoomList } from '@/components/room'
 import { Response, ResponsePaginate, Room } from '@/models';
 import { Box, Typography } from '@mui/material'
 import { cookies } from 'next/headers'
-import createFetch from '@vercel/fetch';
-const fetch = createFetch();
+
 
 const getRoomList = async () : Promise<Response<ResponsePaginate<Room>>> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/wishlist?limit=12`, {

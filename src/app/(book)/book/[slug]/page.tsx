@@ -1,8 +1,7 @@
 import { BookCard, BookInfo } from '@/components/book';
 import { Room,Response } from '@/models';
 import { Box, Stack, Typography } from '@mui/material';
-import createFetch from '@vercel/fetch';
-const fetch = createFetch();
+
 
 
 const getRoomDetail = async (id: number): Promise<Response<Room>> => {

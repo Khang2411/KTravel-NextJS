@@ -3,8 +3,7 @@ import { RoomSearchList } from '@/components/room'
 import { Category, ListResponse, Response, ResponsePaginate, Room } from '@/models';
 import { Box } from '@mui/material'
 import { cookies } from 'next/headers'
-import createFetch from '@vercel/fetch';
-const fetch = createFetch();
+
 
 const getRoomSearchList = async (searchParams: string) : Promise<Response<ResponsePaginate<Room>>> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/search?limit=12&${searchParams}`, {
