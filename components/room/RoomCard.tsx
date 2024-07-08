@@ -119,7 +119,7 @@ export const RoomCard = ({ room }: RoomCard) => {
                         {room.images.map((image, index) =>
                             <SwiperSlide key={index}>
                                 <Link href={`/room/${room.id}?${state.search}`} target="_blank">
-                                    <Image src={image.image} alt={"travel-img"} fill={true} style={{ objectFit: 'cover', aspectRatio: '20/19', borderRadius: '15px' }} />
+                                    <Image src={image.image} alt={"travel-img"} width={285} height={285} style={{ objectFit: 'cover', aspectRatio: '20/19', borderRadius: '15px' }} />
                                 </Link>
                             </SwiperSlide>
                         )}

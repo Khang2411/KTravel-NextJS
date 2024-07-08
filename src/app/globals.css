@@ -76,9 +76,9 @@ header {
   align-items: center;
 }
 
-.mySwiper-card-room{
-    height: 281px !important;
-}
+/* .mySwiper-card-room{
+    min-height: 285px !important;
+} */
 
 .swiper-slide img {
   display: block;

@@ -21,9 +21,6 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
 
     const handleCategory = (slug: string, cateid: string | number) => {
         router.push(`/?tab=${slug}&category_id=${cateid}`)
-        if (pathname === '/') {
-            mutateCategory(`/?tab=${slug}&category_id=${cateid}`)
-        }
     }
     return (
         <>

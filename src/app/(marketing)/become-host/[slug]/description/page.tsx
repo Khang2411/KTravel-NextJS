@@ -22,7 +22,7 @@ const Page = ({ params }: { params: { slug: number } }) => {
         }
     };
     return (
-        <Box sx={{ paddingInline: { xs: '24px', md: '80px' } }}>
+        <Box sx={{ paddingInline: { xs: '24px', md: '80px' }, height:'100vh' }}>
             <Box sx={{ maxWidth: '630px', width: '100%', margin: 'auto' }}>
                 <Box marginBottom={'32px'}>
                     <Typography fontSize={30} fontWeight={600}>Tạo phần mô tả</Typography>
