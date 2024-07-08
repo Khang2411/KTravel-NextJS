@@ -9,7 +9,9 @@ import {
 } from "@/models";
 import { Box } from "@mui/material";
 import { cookies } from "next/headers";
-import  fetch  from "node-fetch";
+import fetch from "node-fetch";
+import https from "https";
+import crypto from "crypto";
 
 const getRoomList = async (
   searchParams: string
@@ -22,6 +24,9 @@ const getRoomList = async (
       headers: {
         Authorization: `Bearer ${cookies().get("accessToken")?.value}`,
       },
+      agent: new https.Agent({
+        secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+      }),
     }
   );
   return res.json() as Promise<Response<ResponsePaginate<Room>>>;
@@ -29,7 +34,10 @@ const getRoomList = async (
 
 const getCategoryList = async (): Promise<ListResponse<Category>> => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`,
+    {
+      agent: new https.Agent({ secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT})
+    }
   );
   return res.json() as Promise<ListResponse<Category>>;
 };
