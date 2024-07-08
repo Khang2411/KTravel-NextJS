@@ -8,6 +8,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] })
 
 export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
   title: 'Du lịch | Nhà nghỉ dưỡng Ktravel',
