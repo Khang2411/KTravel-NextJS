@@ -5,10 +5,20 @@ import { Box } from '@mui/material'
 import { cookies } from 'next/headers'
 import createFetch from '@vercel/fetch';
 const fetch = createFetch();
+import Agent from 'agentkeepalive';
+
+// Create a keep-alive HTTP agent
+const keepaliveAgent = new Agent({
+  maxSockets: 100,
+  maxFreeSockets: 10,
+  timeout: 60000, // active socket keepalive for 60 seconds
+  freeSocketTimeout: 30000, // free socket keepalive for 30 seconds
+});
 
 const getRoomList = async (searchParams: string): Promise<Response<ResponsePaginate<Room>>> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms?limit=12${searchParams && '&' +searchParams}`, {
     method: 'GET',
+    agent: keepaliveAgent, // Pass the keep-alive agent to the fetch request
     headers: {
       'Authorization': `Bearer ${cookies().get('accessToken')?.value}`,
     },
