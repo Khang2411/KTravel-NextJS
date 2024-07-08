@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { cookies } from 'next/headers';
-import fetch from 'node-fetch';
+import createFetch from '@vercel/fetch';
+const fetch = createFetch();
 
 const handler = NextAuth({
   providers: [

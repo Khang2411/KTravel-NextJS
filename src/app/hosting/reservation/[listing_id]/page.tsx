@@ -3,7 +3,8 @@ import { Box, Divider, Stack } from "@mui/material";
 import { cookies } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import fetch from 'node-fetch';
+import createFetch from '@vercel/fetch';
+const fetch = createFetch();
 import { Response, Room } from "@/models";
 
 const getRoom = async (id: number): Promise<Response<Room>> => {

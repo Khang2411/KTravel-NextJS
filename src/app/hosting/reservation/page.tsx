@@ -1,7 +1,8 @@
 import { ReservationTab } from "@/components/reservation";
 import { Box, Typography } from "@mui/material";
 import { cookies } from 'next/headers';
-import fetch from 'node-fetch';
+import createFetch from '@vercel/fetch';
+const fetch = createFetch();
 
 const getReservationList = async (): Promise<any> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/reservation/list?page=1&limit=10&person=me`, {

@@ -4,7 +4,8 @@ import { RoomReservationMobile } from "@/components/room/RoomReservationMobile"
 import { Box, Stack } from "@mui/material"
 import { cookies } from "next/headers"
 import type { Metadata, ResolvingMetadata } from 'next'
-import fetch from 'node-fetch';
+import createFetch from '@vercel/fetch';
+const fetch = createFetch();
 import { Response, Room } from "@/models"
 
 type Props = {
