@@ -9,6 +9,7 @@ import {
 } from "@/models";
 import { Box } from "@mui/material";
 import { cookies } from "next/headers";
+import { fetch } from "undici";
 
 const getRoomList = async (
   searchParams: string
@@ -18,7 +19,6 @@ const getRoomList = async (
       searchParams && "&" + searchParams
     }`,
     {
-      method: "GET",
       headers: {
         Authorization: `Bearer ${cookies().get("accessToken")?.value}`,
       },
