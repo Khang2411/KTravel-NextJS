@@ -1,4 +1,3 @@
-'use client'
 import { CategoryList } from "@/components/category";
 import { RoomList } from "@/components/room";
 import {
@@ -9,8 +8,7 @@ import {
   Room,
 } from "@/models";
 import { Box } from "@mui/material";
-// import { cookies } from "next/headers";
-import Cookies from 'js-cookie';
+import { cookies } from "next/headers";
 
 const getRoomList = async (
   searchParams: string
@@ -21,8 +19,8 @@ const getRoomList = async (
     }`,
     {
       headers: {
-        Authorization: `Bearer ${Cookies.get("accessToken")}`,
-      }
+        Authorization: `Bearer ${cookies().get("accessToken")?.value}`,
+      },
     }
   );
   return res.json() as Promise<Response<ResponsePaginate<Room>>>;
@@ -30,12 +28,11 @@ const getRoomList = async (
 
 const getCategoryList = async (): Promise<ListResponse<Category>> => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`
   );
   return res.json() as Promise<ListResponse<Category>>;
 };
 
-// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({
   searchParams,
 }: {
