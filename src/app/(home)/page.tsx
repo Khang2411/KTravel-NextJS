@@ -9,7 +9,7 @@ import {
 } from "@/models";
 import { Box } from "@mui/material";
 import { cookies } from "next/headers";
-import { fetch } from "undici";
+import  fetch  from "node-fetch";
 
 const getRoomList = async (
   searchParams: string
