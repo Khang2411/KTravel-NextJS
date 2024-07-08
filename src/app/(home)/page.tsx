@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { CategoryList } from "@/components/category";
 import { RoomList } from "@/components/room";
 import {
