@@ -9,14 +9,14 @@ import * as React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', flex: 1, minWidth: 100 },
-    { field: 'name', headerName: 'Nhà/Phòng', flex: 1, minWidth: 100 },
-    { field: 'price', headerName: 'Giá', flex: 1, minWidth: 100 },
-    { field: 'nights', headerName: 'Đêm', flex: 1, minWidth: 100 },
-    { field: 'discount', headerName: 'Giảm giá', flex: 1, minWidth: 100 },
-    { field: 'check_in', headerName: 'Ngày đặt', flex: 1, minWidth: 100 },
-    { field: 'check_out', headerName: 'Ngày trả', flex: 1, minWidth: 100 },
-    { field: 'total', headerName: 'Tổng cộng', flex: 1, minWidth: 100 },
+    { field: 'id', headerName: 'ID', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
+    { field: 'name', headerName: 'Nhà/Phòng', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
+    { field: 'price', headerName: 'Giá', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center'},
+    { field: 'nights', headerName: 'Đêm', flex: 1, minWidth: 10, headerAlign: 'center', align: 'center'},
+    { field: 'discount', headerName: 'Giảm giá', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
+    { field: 'check_in', headerName: 'Ngày đặt', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
+    { field: 'check_out', headerName: 'Ngày trả', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
+    { field: 'total', headerName: 'Tổng cộng', flex: 1, minWidth: 100, headerAlign: 'center', align: 'center' },
 ];
 
 interface TabPanelProps {
@@ -66,9 +66,9 @@ export const ReservationTab = ({ reservationList }: ReservationTabProps) => {
 
     const rows = observer?.map((row: { id: number; listing_id: number, listing: { name: string; }; price: number; nights: number; discount: number; check_in: string; check_out: string; total: number; }) => {
         return {
-            id: row.id, name: row.listing.name, price: row.price,
+            id: row.id, name: row.listing.name, price: row.price + " $",
             nights: row.nights, discount: row.discount ? row.discount : 'Không có',
-            check_in: row.check_in, check_out: row.check_out, total: row.total,
+            check_in: row.check_in, check_out: row.check_out, total: row.total + " $",
             listing_id: row.listing_id
         }
     })
@@ -143,7 +143,7 @@ export const ReservationTab = ({ reservationList }: ReservationTabProps) => {
                                     disableRowSelectionOnClick
                                     onRowClick={(event, rowData) => {
                                         console.log(event)
-                                        router.push('/hosting/reservation/' + event.row.listing_id)
+                                        // router.push('/rooms/' + event.row.listing_id)
                                     }}
                                 />
                                 <Box ref={ref}></Box>
@@ -170,7 +170,7 @@ export const ReservationTab = ({ reservationList }: ReservationTabProps) => {
                                     localeText={{ noRowsLabel: "Không có dữ liệu" }}
                                     onRowClick={(event, rowData) => {
                                         console.log(event)
-                                        router.push('/hosting/reservation/' + event.row.listing_id)
+                                        // router.push('/hosting/reservation/' + event.row.listing_id)
                                     }}
                                 />
                                 <Box ref={ref}></Box>
