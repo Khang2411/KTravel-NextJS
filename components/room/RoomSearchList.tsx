@@ -45,8 +45,8 @@ export const RoomSearchList = ({ rooms }: RoomSearchListProps) => {
 
     return (
         <Box>
-            {observer.length !== 0 ? <Stack direction={{ xs: 'column-reverse', md: 'row' }} gap={3} alignItems={'center'}>
-                <Grid container spacing={3} width={{ xs: '100%', md: '56%' }} >
+            {observer.length !== 0 ? <Stack direction={{ xs: 'column-reverse', md: 'row' }} gap={3}>
+                <Grid container spacing={3} width={{ md: '56%' }} alignItems={'center'}>
                     {observer.map((item, index) =>
                         <Grid item xs={12} sm={6} md={pathname === "/search" ? 6 : 4} lg={pathname === "/search" ? 4 : 3} key={index}>
                             <RoomCard room={item}></RoomCard>
